@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { cards, categoryOptions, formatFee, issuers, type CardRecord } from '@/lib/perq-data'
+import { formatFee, type CardRecord } from '@/lib/perq-data'
 import { cn } from '@/lib/utils'
 
 function matchesCategory(card: CardRecord, category: string) {
@@ -13,10 +13,25 @@ function matchesCategory(card: CardRecord, category: string) {
   return card.categories.some((value) => value.toLowerCase() === category)
 }
 
-export function CardsExplorer() {
+export function CardsExplorer({ cards }: { cards: CardRecord[] }) {
   const [query, setQuery] = useState('')
   const [issuer, setIssuer] = useState('all')
   const [category, setCategory] = useState('all')
+
+  const issuerOptions = useMemo(() => {
+    return Array.from(new Set(cards.map((card) => card.issuer))).sort((left, right) => left.localeCompare(right))
+  }, [cards])
+
+  const categoryOptions = useMemo(() => {
+    const categories = Array.from(new Set(cards.flatMap((card) => card.categories)))
+    return [
+      { label: 'All cards', value: 'all' },
+      ...categories.map((item) => ({
+        label: item,
+        value: item === 'No Fee' ? 'no-fee' : item.toLowerCase(),
+      })),
+    ]
+  }, [cards])
 
   const filteredCards = useMemo(() => {
     return cards.filter((card) => {
@@ -30,7 +45,7 @@ export function CardsExplorer() {
 
       return matchesQuery && matchesIssuer && matchesCategory(card, category)
     })
-  }, [category, issuer, query])
+  }, [cards, category, issuer, query])
 
   return (
     <div className="space-y-8">
@@ -62,7 +77,7 @@ export function CardsExplorer() {
                   className="h-11 w-full rounded-xl border border-border/50 bg-background px-3 text-sm text-foreground outline-none"
                 >
                   <option value="all">All issuers</option>
-                  {issuers.map((item) => (
+                  {issuerOptions.map((item) => (
                     <option key={item} value={item}>
                       {item}
                     </option>

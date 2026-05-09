@@ -13,7 +13,7 @@ const navItems = [
   { href: '/dashboard/benefits', label: 'Benefits' },
   { href: '/dashboard/insights', label: 'Signals' },
   { href: '/dashboard/recommendations', label: 'Explorer' },
-  { href: '/dashboard/settings', label: 'Project Notes' },
+  { href: '/dashboard/settings', label: 'Methodology' },
 ]
 
 export function DashboardHeader() {
@@ -28,7 +28,7 @@ export function DashboardHeader() {
     <>
       <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/50 bg-background/80 px-4 backdrop-blur-xl sm:px-6">
         <div>
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Perq Lab</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Perq Insights</div>
           <h1 className="text-lg font-semibold text-foreground">{currentPage.label}</h1>
         </div>
 
@@ -36,7 +36,7 @@ export function DashboardHeader() {
           <div className="rounded-full border border-border/60 px-3 py-1 text-xs text-muted-foreground">perq.live</div>
           <div className="flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs text-accent">
             <Blocks className="h-3.5 w-3.5" />
-            Local mock mode
+            Analysis workspace
           </div>
         </div>
 

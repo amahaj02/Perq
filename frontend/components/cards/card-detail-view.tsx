@@ -1,10 +1,8 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { formatFee, getRelatedCards, type CardRecord } from '@/lib/perq-data'
+import { formatFee, type CardRecord } from '@/lib/perq-data'
 
-export function CardDetailView({ card }: { card: CardRecord }) {
-  const relatedCards = getRelatedCards(card)
-
+export function CardDetailView({ card, relatedCards }: { card: CardRecord; relatedCards: CardRecord[] }) {
   return (
     <div className="space-y-8">
       <Link href="/cards" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">

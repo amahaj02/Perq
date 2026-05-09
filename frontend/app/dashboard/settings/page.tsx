@@ -2,23 +2,23 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-semibold text-foreground">Project Notes</h2>
-        <p className="text-sm text-muted-foreground">This section replaces faux account settings with actual implementation context.</p>
+        <h2 className="text-2xl font-semibold text-foreground">Methodology</h2>
+        <p className="text-sm text-muted-foreground">A quick reference for how Perq organizes and presents card information.</p>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
         {[
           {
-            title: 'Frontend source of truth',
-            body: 'The Next.js app is the primary frontend. Shared typed mock data keeps the UI coherent while backend work stays intentionally out of scope.',
+            title: 'Frontend structure',
+            body: 'The Next.js app is the primary frontend, with shared card models used across the explorer, detail pages, and insight surfaces.',
           },
           {
-            title: 'Routing direction',
-            body: 'Public routes focus on card discovery and detail pages. Dashboard routes act as a project lab instead of pretending there is a signed-in product account.',
+            title: 'Navigation model',
+            body: 'Public routes focus on card discovery and detail pages, while the insights area groups reward maps, benefit views, and comparison signals.',
           },
           {
-            title: 'Next backend step',
-            body: 'If needed later, the local data model can be swapped for Supabase or CSV-backed loaders without changing the UI hierarchy again.',
+            title: 'Data source',
+            body: 'The backend now connects to Supabase Postgres and can feed the frontend catalog progressively as more issuer and reward detail moves into the database.',
           },
         ].map((note) => (
           <div key={note.title} className="rounded-[2rem] border border-border/50 bg-card p-6">

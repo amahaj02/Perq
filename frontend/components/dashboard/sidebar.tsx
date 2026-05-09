@@ -12,7 +12,7 @@ const navItems = [
   { href: '/dashboard/benefits', label: 'Benefits', icon: Shield },
   { href: '/dashboard/insights', label: 'Signals', icon: BarChart3 },
   { href: '/dashboard/recommendations', label: 'Explorer', icon: Sparkles },
-  { href: '/dashboard/settings', label: 'Project Notes', icon: FileText },
+  { href: '/dashboard/settings', label: 'Methodology', icon: FileText },
 ]
 
 export function DashboardSidebar() {
@@ -25,8 +25,8 @@ export function DashboardSidebar() {
           P
         </div>
         <div>
-          <div className="text-sm font-semibold text-foreground">Perq Lab</div>
-          <div className="text-[11px] text-muted-foreground">Frontend-first workspace</div>
+          <div className="text-sm font-semibold text-foreground">Perq Insights</div>
+          <div className="text-[11px] text-muted-foreground">Card intelligence workspace</div>
         </div>
       </div>
 
@@ -58,10 +58,10 @@ export function DashboardSidebar() {
         <div className="rounded-[1.5rem] border border-border/50 bg-card p-4">
           <div className="flex items-center gap-2 text-sm font-medium text-foreground">
             <Blocks className="h-4 w-4 text-accent" />
-            Project posture
+            Coverage
           </div>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Independent interface exploration for Canadian card discovery, rewards logic, and benefit visibility.
+            Canadian card discovery, reward logic, and benefit visibility in one place.
           </p>
         </div>
       </div>

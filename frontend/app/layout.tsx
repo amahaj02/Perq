@@ -7,7 +7,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Perq',
   description:
-    'Perq is a Canada-first credit card discovery and optimization project focused on comparing cards, rewards, and benefits in a clean modern interface.',
+    'Perq is a Canada-first credit card discovery and optimization platform focused on comparing cards, rewards, and benefits in a clean modern interface.',
   keywords: ['Perq', 'perq.live', 'Canada credit cards', 'rewards', 'cash back', 'card explorer'],
   openGraph: {
     title: 'Perq',

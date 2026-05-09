@@ -67,14 +67,14 @@ export function HomePage() {
           <div className="relative space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-accent">
               <Sparkles className="h-3.5 w-3.5" />
-              Independent reward tooling for Canada
+              Reward intelligence for Canada
             </div>
             <div className="space-y-5">
               <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-balance text-foreground sm:text-6xl">
                 Perq helps make Canadian credit cards legible.
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                Explore cards, decode reward structures, compare benefit stacks, and inspect which products actually fit different spending situations. Clean interface first, monetization theatre removed.
+                Explore cards, decode reward structures, compare benefit stacks, and inspect which products actually fit different spending situations.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -86,15 +86,15 @@ export function HomePage() {
               </Link>
               <Link href="/dashboard">
                 <Button size="lg" variant="outline" className="h-12 border-border/60 bg-card px-6">
-                  Open project lab
+                  View insights
                 </Button>
               </Link>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
               {[
                 { label: 'Issuer coverage', value: `${issuers.length} issuers` },
-                { label: 'Current working set', value: `${cards.length} modeled cards` },
-                { label: 'Positioning', value: 'Project, not productized SaaS' },
+                { label: 'Tracked cards', value: `${cards.length} cards` },
+                { label: 'Coverage', value: 'Rewards, perks, and fee tradeoffs' },
               ].map((item) => (
                 <div key={item.label} className="rounded-3xl border border-border/50 bg-card/60 p-4">
                   <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{item.label}</div>

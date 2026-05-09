@@ -7,6 +7,7 @@ pytest-cache-files-*/
 .coverage
 htmlcov/
 .env
+uvicorn*.log
 *.pyc
 *.pyo
 *.pyd

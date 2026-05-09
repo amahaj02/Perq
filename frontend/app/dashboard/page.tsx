@@ -11,9 +11,9 @@ export default function DashboardPage() {
       <section className="grid gap-4 xl:grid-cols-[1.15fr_0.85fr]">
         <div className="rounded-[2rem] border border-border/50 bg-card p-6">
           <div className="text-xs uppercase tracking-[0.2em] text-accent">Overview</div>
-          <h2 className="mt-3 text-3xl font-semibold text-foreground">Perq is now organized as a frontend-first card exploration project.</h2>
+          <h2 className="mt-3 text-3xl font-semibold text-foreground">A dedicated view for comparing cards, rewards, and benefits.</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            The dashboard is no longer pretending to be a SaaS account area. It acts as a project lab: a space for comparing the catalog, inspecting reward logic, and validating the information architecture around Canadian cards.
+            This section brings together the card catalog, reward maps, benefit visibility, and card-selection signals in one focused workspace.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/cards" className="rounded-xl bg-accent px-4 py-2 text-sm font-medium text-accent-foreground">
@@ -44,24 +44,24 @@ export default function DashboardPage() {
 
       <section className="grid gap-4 lg:grid-cols-3">
         <div className="rounded-[2rem] border border-border/50 bg-card p-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Catalog shape</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Fee benchmark</div>
           <div className="mt-3 text-2xl font-semibold text-foreground">${averageFee}</div>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Average modeled annual fee across the current working set. This is useful for testing how fee-aware comparisons should be presented.
+            Average annual fee across the current tracked catalog.
           </p>
         </div>
         <div className="rounded-[2rem] border border-border/50 bg-card p-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Positioning</div>
-          <div className="mt-3 text-lg font-semibold text-foreground">Technical project, not a monetized funnel</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Coverage</div>
+          <div className="mt-3 text-lg font-semibold text-foreground">Cards, rewards, and benefits</div>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Pricing tables, enterprise messaging, plan language, and fake growth copy have been removed from the primary frontend surface.
+            Perq is structured around practical card comparison rather than issuer marketing copy.
           </p>
         </div>
         <div className="rounded-[2rem] border border-border/50 bg-card p-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Backend stance</div>
-          <div className="mt-3 text-lg font-semibold text-foreground">Mock-first</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Data path</div>
+          <div className="mt-3 text-lg font-semibold text-foreground">Live API-backed catalog</div>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            The UI now runs cleanly against local typed data so the frontend can evolve before committing to backend architecture.
+            Card surfaces can pull live catalog data from the backend while preserving editorial fallbacks where needed.
           </p>
         </div>
       </section>

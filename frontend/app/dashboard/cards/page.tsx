@@ -6,7 +6,7 @@ export default function CardsPage() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-semibold text-foreground">Catalog</h2>
-        <p className="text-sm text-muted-foreground">A structured snapshot of the local card dataset driving the current frontend.</p>
+        <p className="text-sm text-muted-foreground">A structured snapshot of the current card catalog surfaced through Perq.</p>
       </div>
 
       <div className="grid gap-4 xl:grid-cols-2">

@@ -6,6 +6,8 @@ const config = [
   ...nextTypescript,
   {
     ignores: [
+      '.next/**',
+      '.next-*/**',
       'components/ui/carousel.tsx',
       'components/ui/sidebar.tsx',
       'components/ui/use-mobile.tsx',

@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <div className="text-base font-semibold text-foreground">Perq</div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            An independent Canada-first project for exploring credit cards, reward structures, and practical benefit tradeoffs.
+            A Canada-first platform for exploring credit cards, reward structures, and practical benefit tradeoffs.
           </p>
           <p className="text-xs text-muted-foreground">perq.live</p>
         </div>
@@ -16,7 +16,7 @@ export function SiteFooter() {
           <div className="text-sm font-semibold text-foreground">Explore</div>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
             <Link href="/cards">Card explorer</Link>
-            <Link href="/dashboard">Project lab</Link>
+            <Link href="/dashboard">Insights</Link>
             <Link href="/dashboard/benefits">Benefit tracker</Link>
           </div>
         </div>
@@ -24,7 +24,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <div className="text-sm font-semibold text-foreground">Positioning</div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Perq is not a bank and not affiliated with card issuers. The current frontend uses local mock data while the product structure is being refined.
+            Perq is not a bank and is not affiliated with card issuers. Information should be verified against current issuer terms before applying.
           </p>
         </div>
       </div>

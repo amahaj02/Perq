@@ -27,7 +27,8 @@ backend/
 ├── data/
 ├── tests/
 ├── alembic.ini
-├── requirements.txt
+├── pyproject.toml
+├── uv.lock
 └── README.md
 ```
 
@@ -36,9 +37,7 @@ backend/
 From the `backend/` directory:
 
 ```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
+uv sync --group dev
 copy .env.example .env
 ```
 
@@ -47,13 +46,13 @@ Set `DATABASE_URL` in `.env` to your Supabase Postgres connection string.
 ## Run Migrations
 
 ```bash
-alembic upgrade head
+uv run alembic upgrade head
 ```
 
 To create a new migration later:
 
 ```bash
-alembic revision --autogenerate -m "describe change"
+uv run alembic revision --autogenerate -m "describe change"
 ```
 
 ## Seed Data
@@ -61,7 +60,7 @@ alembic revision --autogenerate -m "describe change"
 The current seed files live in `data/`.
 
 ```bash
-python -m app.db.seed
+uv run python -m app.db.seed
 ```
 
 This loads:
@@ -76,8 +75,28 @@ This loads:
 ## Run the API
 
 ```bash
-uvicorn app.main:app --reload
+uv run python -m uvicorn app.main:app --host 127.0.0.1 --port 8080 --reload
 ```
+
+If Windows reload permissions get in the way in your terminal, run without reload:
+
+```bash
+uv run python -m uvicorn app.main:app --host 127.0.0.1 --port 8080
+```
+
+## Tests
+
+```bash
+uv run python -m pytest tests
+```
+
+## Deploy Notes
+
+The backend now uses `uv` as the single dependency manager. That gives you:
+
+- one source of truth in `pyproject.toml`
+- a lockfile for reproducible installs
+- faster cold installs in CI and deploy environments with `uv sync`
 
 ## Important Endpoints
 

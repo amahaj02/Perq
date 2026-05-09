@@ -262,19 +262,19 @@ export const categoryOptions: Array<{ label: string; value: 'all' | Lowercase<Ca
 
 export const projectSignals = [
   {
-    label: 'Cards modeled',
+    label: 'Tracked cards',
     value: String(cards.length),
-    detail: 'Local frontend catalog aligned to the current backend schema.',
+    detail: 'Current card catalog available across the main explorer and detail pages.',
   },
   {
-    label: 'Issuers tracked',
+    label: 'Issuers covered',
     value: String(issuers.length),
     detail: 'Canada-first issuer set spanning major banks and common alternatives.',
   },
   {
     label: 'Core surfaces',
     value: '4',
-    detail: 'Landing, explorer, card detail, and a project-lab dashboard.',
+    detail: 'Landing, explorer, card detail, and an insights workspace.',
   },
 ]
 

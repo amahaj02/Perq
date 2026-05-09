@@ -9,7 +9,7 @@ export default function InsightsPage() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-semibold text-foreground">Signals</h2>
-        <p className="text-sm text-muted-foreground">Quick heuristics for pressure-testing the information architecture and comparison surfaces.</p>
+        <p className="text-sm text-muted-foreground">Quick heuristics for understanding how the current catalog is distributed across common card use cases.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
@@ -27,7 +27,7 @@ export default function InsightsPage() {
       </div>
 
       <div className="rounded-[2rem] border border-border/50 bg-card p-6">
-        <h3 className="text-lg font-semibold text-foreground">What the frontend should keep optimizing for</h3>
+        <h3 className="text-lg font-semibold text-foreground">What good card comparison should keep emphasizing</h3>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
             'Make annual fees and fee waivers obvious early in the card decision flow.',
