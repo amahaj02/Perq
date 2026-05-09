@@ -10,19 +10,13 @@ from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
 from app.db.session import session_scope
-from app.models import Benefit, CardBenefit, CardRewardCategory, CreditCard, Issuer, RewardCategory, SignupOffer
+from app.models import Benefit, CardBenefit, CardRewardCategory, CreditCard, Issuer, RewardCategory, RewardRate, SignupOffer
 from app.utils.slug import slugify
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return [{key.strip(): (value.strip() if value is not None else "") for key, value in row.items()} for row in DictReader(handle)]
-
-
-def split_csv_cell(value: str) -> list[str]:
-    if not value:
-        return []
-    return [item.strip() for item in value.split(",") if item.strip()]
 
 
 def infer_network(card_name: str) -> str:
@@ -118,10 +112,19 @@ def sync_card_reward_categories(
 ) -> None:
     session.execute(delete(CardRewardCategory))
     for row in rows:
-        card = cards_by_slug[row["card_slug"]]
-        for category_slug in split_csv_cell(row["category_slug"]):
-            category = categories_by_slug[category_slug]
-            session.add(CardRewardCategory(card_id=card.id, reward_category_id=category.id))
+        card_slug = row["card_slug"]
+        category_slug = row["category_slug"]
+        if not card_slug or not category_slug:
+            continue
+        if "," in category_slug:
+            raise ValueError(
+                f"card_categories.csv contains a comma-separated category list for '{card_slug}'. "
+                "Each row must contain exactly one category_slug."
+            )
+
+        card = cards_by_slug[card_slug]
+        category = categories_by_slug[category_slug]
+        session.add(CardRewardCategory(card_id=card.id, reward_category_id=category.id))
     session.flush()
 
 
@@ -175,6 +178,51 @@ def parse_optional_date(value: str) -> date | None:
     return date.fromisoformat(value)
 
 
+def parse_optional_int(value: str) -> int | None:
+    if not value:
+        return None
+    return int(value)
+
+
+def parse_optional_float(value: str) -> float | None:
+    if not value:
+        return None
+    return float(value)
+
+
+def sync_reward_rates(
+    session: Session,
+    rows: Iterable[dict[str, str]],
+    cards_by_slug: dict[str, CreditCard],
+    categories_by_slug: dict[str, RewardCategory],
+) -> None:
+    session.execute(delete(RewardRate))
+    for row in rows:
+        card_slug = row["card_slug"]
+        category_slug = row["category_slug"]
+        earn_rate = parse_optional_float(row["earn_rate"])
+
+        if not card_slug or not category_slug or earn_rate is None:
+            continue
+
+        card = cards_by_slug[card_slug]
+        category = categories_by_slug[category_slug]
+        session.add(
+            RewardRate(
+                card_id=card.id,
+                reward_category_id=category.id,
+                earn_rate=earn_rate,
+                earn_type=row["earn_type"] or "points_per_dollar",
+                reward_currency=row["reward_currency"] or None,
+                monthly_cap_cents=parse_optional_int(row["monthly_cap_cents"]),
+                annual_cap_cents=parse_optional_int(row["annual_cap_cents"]),
+                cap_reset_frequency=row["cap_reset_frequency"] or None,
+                notes=row["notes"] or None,
+            )
+        )
+    session.flush()
+
+
 def sync_signup_offers(session: Session, rows: Iterable[dict[str, str]], cards_by_slug: dict[str, CreditCard]) -> None:
     session.execute(delete(SignupOffer))
     for row in rows:
@@ -199,24 +247,30 @@ def sync_signup_offers(session: Session, rows: Iterable[dict[str, str]], cards_b
     session.flush()
 
 
-def seed_database() -> None:
-    settings = get_settings()
-    data_dir = settings.data_dir
-
+def seed_session(session: Session, data_dir: Path) -> None:
     issuer_rows = read_csv_rows(data_dir / "banks.csv")
     category_rows = read_csv_rows(data_dir / "categories.csv")
     card_rows = read_csv_rows(data_dir / "credit_cards.csv")
     card_category_rows = read_csv_rows(data_dir / "card_categories.csv")
+    reward_rate_rows = read_csv_rows(data_dir / "reward_rates.csv")
     benefit_rows = read_csv_rows(data_dir / "benefits.csv")
     signup_offer_rows = read_csv_rows(data_dir / "signup_offers.csv")
 
+    issuers_by_slug = upsert_issuers(session, issuer_rows)
+    categories_by_slug = upsert_reward_categories(session, category_rows)
+    cards_by_slug = upsert_credit_cards(session, card_rows, issuers_by_slug)
+    sync_card_reward_categories(session, card_category_rows, cards_by_slug, categories_by_slug)
+    sync_reward_rates(session, reward_rate_rows, cards_by_slug, categories_by_slug)
+    sync_benefits(session, benefit_rows, cards_by_slug)
+    sync_signup_offers(session, signup_offer_rows, cards_by_slug)
+
+
+def seed_database() -> None:
+    settings = get_settings()
+    data_dir = settings.data_dir
+
     with session_scope() as session:
-        issuers_by_slug = upsert_issuers(session, issuer_rows)
-        categories_by_slug = upsert_reward_categories(session, category_rows)
-        cards_by_slug = upsert_credit_cards(session, card_rows, issuers_by_slug)
-        sync_card_reward_categories(session, card_category_rows, cards_by_slug, categories_by_slug)
-        sync_benefits(session, benefit_rows, cards_by_slug)
-        sync_signup_offers(session, signup_offer_rows, cards_by_slug)
+        seed_session(session, data_dir)
 
 
 if __name__ == "__main__":

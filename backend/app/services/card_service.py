@@ -3,11 +3,12 @@ from __future__ import annotations
 from sqlalchemy import Select, func, or_, select
 from sqlalchemy.orm import Session, joinedload, selectinload
 
-from app.models import CardBenefit, CardRewardCategory, CreditCard, Issuer, RewardCategory
+from app.models import CardBenefit, CardRewardCategory, CreditCard, Issuer, RewardCategory, RewardRate
 from app.schemas.benefit import CardBenefitRead
 from app.schemas.card import CreditCardDetailRead, CreditCardListItemRead, CreditCardListRead
 from app.schemas.issuer import IssuerRead
 from app.schemas.reward_category import RewardCategoryRead
+from app.schemas.reward_rate import RewardRateRead
 from app.schemas.signup_offer import SignupOfferRead
 
 
@@ -15,6 +16,7 @@ def _card_base_query() -> Select[tuple[CreditCard]]:
     return select(CreditCard).options(
         joinedload(CreditCard.issuer),
         selectinload(CreditCard.reward_categories).joinedload(CardRewardCategory.reward_category),
+        selectinload(CreditCard.reward_rates).joinedload(RewardRate.reward_category),
         selectinload(CreditCard.benefits).joinedload(CardBenefit.benefit),
         selectinload(CreditCard.signup_offers),
     )
@@ -135,6 +137,17 @@ def get_card_by_slug(session: Session, slug: str) -> CreditCardDetailRead | None
         SignupOfferRead.model_validate(offer)
         for offer in sorted(card.signup_offers, key=lambda item: (not item.is_active, item.title.lower()))
     ]
+    reward_rates = [
+        RewardRateRead.model_validate(reward_rate)
+        for reward_rate in sorted(
+            card.reward_rates,
+            key=lambda item: (
+                item.reward_category.name.lower(),
+                item.earn_rate * -1,
+                item.id,
+            ),
+        )
+    ]
 
     return CreditCardDetailRead(
         **base_item.model_dump(),
@@ -143,4 +156,5 @@ def get_card_by_slug(session: Session, slug: str) -> CreditCardDetailRead | None
         rewards_currency=card.rewards_currency,
         benefits=benefits,
         signup_offers=signup_offers,
+        reward_rates=reward_rates,
     )

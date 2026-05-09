@@ -28,6 +28,7 @@ class CreditCard(TimestampMixin, Base):
 
     issuer = relationship("Issuer", back_populates="cards")
     reward_categories = relationship("CardRewardCategory", back_populates="card", cascade="all, delete-orphan")
+    reward_rates = relationship("RewardRate", back_populates="card", cascade="all, delete-orphan")
     benefits = relationship("CardBenefit", back_populates="card", cascade="all, delete-orphan")
     signup_offers = relationship("SignupOffer", back_populates="card", cascade="all, delete-orphan")
 

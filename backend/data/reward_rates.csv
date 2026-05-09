@@ -1,0 +1,43 @@
+card_slug,category_slug,earn_rate,earn_type,reward_currency,monthly_cap_cents,annual_cap_cents,cap_reset_frequency,notes
+rbc-avion-visa-infinite,travel,1.25,points_per_cad,Avion,,,,Base earn profile used for travel-oriented filtering.
+rbc-avion-visa-infinite,general,1.0,points_per_cad,Avion,,,,General earn baseline.
+rbc-avion-visa-platinum,travel,1.0,points_per_cad,Avion,,,,General Avion earn profile.
+rbc-avion-visa-platinum,general,1.0,points_per_cad,Avion,,,,General Avion earn profile.
+rbc-ion-plus-visa,groceries,3.0,points_per_cad,RBC Rewards,,,,Bonus category earn.
+rbc-ion-plus-visa,dining,3.0,points_per_cad,RBC Rewards,,,,Bonus category earn.
+rbc-ion-plus-visa,gas,3.0,points_per_cad,RBC Rewards,,,,Bonus category earn.
+rbc-ion-plus-visa,streaming,3.0,points_per_cad,RBC Rewards,,,,Bonus category earn.
+rbc-cash-back-mastercard,groceries,2.0,cashback_percent,Cash Back,,,,Simple no-fee grocery earn.
+rbc-cash-back-mastercard,general,0.5,cashback_percent,Cash Back,,,,Fallback earn on non-bonus spend.
+westjet-rbc-mastercard,travel,1.5,westjet_dollars_per_cad,WestJet dollars,,,,Travel purchases are the primary earn use case.
+westjet-rbc-mastercard,dining,1.0,westjet_dollars_per_cad,WestJet dollars,,,,Non-travel earn placeholder until more granular data is collected.
+westjet-rbc-mastercard,general,1.0,westjet_dollars_per_cad,WestJet dollars,,,,Non-travel earn placeholder until more granular data is collected.
+westjet-rbc-world-elite-mastercard,travel,2.0,westjet_dollars_per_cad,WestJet dollars,,,,Higher travel earn for the premium variant.
+westjet-rbc-world-elite-mastercard,groceries,1.5,westjet_dollars_per_cad,WestJet dollars,,,,Everyday bonus earn.
+westjet-rbc-world-elite-mastercard,gas,1.5,westjet_dollars_per_cad,WestJet dollars,,,,Everyday bonus earn.
+westjet-rbc-world-elite-mastercard,transportation,1.5,westjet_dollars_per_cad,WestJet dollars,,,,Transportation grouped separately for future commuting scenarios.
+westjet-rbc-world-elite-mastercard,general,1.0,westjet_dollars_per_cad,WestJet dollars,,,,Fallback earn.
+rbc-cash-back-preferred-world-elite-mastercard,general,1.0,cashback_percent,Cash Back,,,,Detailed category boosts still need to be collected manually.
+rbc-ion-visa,groceries,1.5,points_per_cad,RBC Rewards,,,,Entry-level bonus category earn.
+rbc-ion-visa,gas,1.5,points_per_cad,RBC Rewards,,,,Entry-level bonus category earn.
+rbc-ion-visa,streaming,1.5,points_per_cad,RBC Rewards,,,,Entry-level bonus category earn.
+rbc-ion-visa,general,1.0,points_per_cad,RBC Rewards,,,,Fallback earn.
+more-rewards-rbc-visa,groceries,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for grocery-heavy filtering.
+more-rewards-rbc-visa,dining,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for dining-heavy filtering.
+more-rewards-rbc-visa,gas,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for commuting-heavy filtering.
+more-rewards-rbc-visa,general,1.0,points_per_cad,More Rewards,,,,Fallback earn.
+moi-rbc-visa,groceries,2.0,points_per_cad,moi rewards,,,,Partner earn estimate for grocery-heavy filtering.
+moi-rbc-visa,dining,2.0,points_per_cad,moi rewards,,,,Partner earn estimate for dining-heavy filtering.
+moi-rbc-visa,gas,2.0,points_per_cad,moi rewards,,,,Partner earn estimate for commuting-heavy filtering.
+moi-rbc-visa,general,1.0,points_per_cad,moi rewards,,,,Fallback earn.
+rbc-avion-visa-infinite-privilege,travel,1.25,points_per_cad,Avion,,,,Premium Avion travel baseline.
+rbc-avion-visa-infinite-privilege,general,1.25,points_per_cad,Avion,,,,Premium Avion general baseline.
+rbc-british-airways-visa-infinite,travel,2.0,points_per_cad,Avios,,,,Co-brand travel earn.
+rbc-british-airways-visa-infinite,dining,1.0,points_per_cad,Avios,,,,Fallback dining earn until issuer-specific detail is collected.
+rbc-british-airways-visa-infinite,general,1.0,points_per_cad,Avios,,,,General earn baseline.
+rbc-us-dollar-visa-gold,travel,2.0,points_per_cad,RBC Rewards,,,,U.S. dollar travel-oriented earn estimate.
+rbc-us-dollar-visa-gold,general,1.0,points_per_cad,RBC Rewards,,,,Fallback earn.
+more-rewards-rbc-visa-infinite,groceries,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for grocery-heavy filtering.
+more-rewards-rbc-visa-infinite,dining,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for dining-heavy filtering.
+more-rewards-rbc-visa-infinite,gas,2.0,points_per_cad,More Rewards,,,,Partner earn estimate for commuting-heavy filtering.
+more-rewards-rbc-visa-infinite,general,1.0,points_per_cad,More Rewards,,,,Fallback earn.

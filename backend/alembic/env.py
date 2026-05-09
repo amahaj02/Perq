@@ -7,7 +7,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.core.config import get_settings
 from app.db.base import Base
-from app.models import benefit, credit_card, issuer, reward_category, signup_offer
+from app.models import benefit, credit_card, issuer, reward_category, reward_rate, signup_offer
 
 config = context.config
 
