@@ -35,9 +35,16 @@ def test_reward_rates_and_card_categories_seed_cleanly() -> None:
 
         category_links = session.scalars(select(CardRewardCategory)).all()
         reward_rates = session.scalars(select(RewardRate)).all()
+        placeholder_rate = session.scalar(
+            select(RewardRate).join(CreditCard).where(CreditCard.slug == "rbc-cash-back-preferred-world-elite-mastercard")
+        )
 
         assert len(category_links) == len(card_category_rows)
         assert len(reward_rates) > 0
+        assert placeholder_rate is not None
+        assert placeholder_rate.confidence_level == "placeholder"
+        assert placeholder_rate.source_url is None
+        assert placeholder_rate.last_verified_at is None
     finally:
         session.close()
 
@@ -68,6 +75,9 @@ def test_card_detail_includes_reward_rates() -> None:
         assert len(payload["reward_rates"]) == 4
         assert payload["reward_rates"][0]["reward_category"]["slug"] in {"dining", "gas", "groceries", "streaming"}
         assert payload["reward_rates"][0]["earn_rate"] == 3.0
+        assert payload["reward_rates"][0]["confidence_level"] == "verified"
+        assert payload["reward_rates"][0]["source_url"] is not None
+        assert payload["reward_rates"][0]["last_verified_at"] == "2026-05-09"
     finally:
         app.dependency_overrides.clear()
         session.close()
