@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from app.schemas.benefit import CardBenefitRead
 from app.schemas.issuer import IssuerRead
 from app.schemas.reward_category import RewardCategoryRead
+from app.schemas.reward_rate import RewardRateRead
 from app.schemas.signup_offer import SignupOfferRead
 
 
@@ -33,3 +34,4 @@ class CreditCardDetailRead(CreditCardListItemRead):
     rewards_currency: str | None = None
     benefits: list[CardBenefitRead]
     signup_offers: list[SignupOfferRead]
+    reward_rates: list[RewardRateRead]

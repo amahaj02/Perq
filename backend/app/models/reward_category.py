@@ -15,3 +15,4 @@ class RewardCategory(TimestampMixin, Base):
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     cards = relationship("CardRewardCategory", back_populates="reward_category", cascade="all, delete-orphan")
+    reward_rates = relationship("RewardRate", back_populates="reward_category", cascade="all, delete-orphan")
