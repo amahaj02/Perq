@@ -196,6 +196,7 @@ def sync_reward_rates(
     cards_by_slug: dict[str, CreditCard],
     categories_by_slug: dict[str, RewardCategory],
 ) -> None:
+    allowed_confidence_levels = {"verified", "estimated", "placeholder"}
     session.execute(delete(RewardRate))
     for row in rows:
         card_slug = row["card_slug"]
@@ -207,6 +208,12 @@ def sync_reward_rates(
 
         card = cards_by_slug[card_slug]
         category = categories_by_slug[category_slug]
+        confidence_level = (row["confidence_level"] or "placeholder").strip().lower()
+        if confidence_level not in allowed_confidence_levels:
+            raise ValueError(
+                f"reward_rates.csv contains unsupported confidence_level '{row['confidence_level']}' "
+                f"for card '{card_slug}' and category '{category_slug}'."
+            )
         session.add(
             RewardRate(
                 card_id=card.id,
@@ -218,6 +225,9 @@ def sync_reward_rates(
                 annual_cap_cents=parse_optional_int(row["annual_cap_cents"]),
                 cap_reset_frequency=row["cap_reset_frequency"] or None,
                 notes=row["notes"] or None,
+                source_url=row["source_url"] or None,
+                last_verified_at=parse_optional_date(row["last_verified_at"]),
+                confidence_level=confidence_level,
             )
         )
     session.flush()
