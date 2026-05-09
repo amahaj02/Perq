@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from functools import lru_cache
 
 from sqlalchemy import create_engine
+from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session, sessionmaker
 
 from app.core.config import get_settings
@@ -17,9 +18,22 @@ def _database_url() -> str:
     return database_url
 
 
+def _database_connect_args() -> dict[str, object]:
+    url = make_url(_database_url())
+    host = url.host or ""
+
+    # Supabase pooled connections should not use prepared statements. This
+    # matters on IPv4-only hosts such as Render when connecting through the
+    # Supavisor or PgBouncer endpoints.
+    if host.endswith(".pooler.supabase.com") or (host.endswith(".supabase.co") and url.port == 6543):
+        return {"prepare_threshold": None}
+
+    return {}
+
+
 @lru_cache
 def get_engine():
-    return create_engine(_database_url(), pool_pre_ping=True)
+    return create_engine(_database_url(), pool_pre_ping=True, connect_args=_database_connect_args())
 
 
 @lru_cache
