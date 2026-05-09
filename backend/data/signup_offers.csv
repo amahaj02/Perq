@@ -1,0 +1,5 @@
+card_slug,title,summary,bonus_value,bonus_currency,spend_requirement_cents,spend_requirement_days,annual_fee_waived,start_date,end_date,is_active
+rbc-avion-visa-infinite,Welcome Avion bonus,Earn bonus Avion points after meeting the initial spend threshold,35000,points,500000,90,TRUE,2026-01-01,2026-12-31,TRUE
+rbc-ion-plus-visa,Everyday Avion boost,Earn extra Avion points in the first three months,12000,points,100000,90,TRUE,2026-01-01,2026-12-31,TRUE
+westjet-rbc-world-elite-mastercard,WestJet welcome offer,Earn WestJet dollars after qualifying purchases,450,westjet-dollars,500000,120,FALSE,2026-01-01,2026-12-31,TRUE
+rbc-cash-back-mastercard,Cash back intro bonus,Introductory cash back on early purchases,100,cad,50000,90,TRUE,2026-01-01,2026-09-30,TRUE

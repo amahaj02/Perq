@@ -1,0 +1,18 @@
+name,slug,bank_slug,annual_fee_cents,fee_type,image_url,is_active
+RBC Avion Visa Infinite,rbc-avion-visa-infinite,rbc,12000,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/rbc-avion-visa-infinite.webp,TRUE
+RBC Avion Visa Platinum,rbc-avion-visa-platinum,rbc,12000,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/rbc-visa-platinum-avion.webp,TRUE
+RBC ION+ Visa,rbc-ion-plus-visa,rbc,4800,FEE,https://www.rbcroyalbank.com/credit-cards/canada/rewards/images/rbc-ion-plus-visa.webp,TRUE
+RBC Cash Back Mastercard,rbc-cash-back-mastercard,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/cash-back/images/rbc-cash-back-mastercard.webp,TRUE
+WestJet RBC Mastercard,westjet-rbc-mastercard,rbc,3900,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/westjet-rbc-mastercard.webp,TRUE
+WestJet RBC World Elite Mastercard,westjet-rbc-world-elite-mastercard,rbc,13900,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/westjet-rbc-world-elite-mastercard.webp,TRUE
+RBC Cash Back Preferred World Elite Mastercard,rbc-cash-back-preferred-world-elite-mastercard,rbc,9900,FEE,https://www.rbcroyalbank.com/credit-cards/canada/cash-back/images/rbc-cash-back-preferred-world-elite-mastercard.webp,TRUE
+RBC Visa Classic Low Rate Option,rbc-visa-classic-low-rate,rbc,2000,FEE,https://www.rbcroyalbank.com/credit-cards/canada/low-interest/images/rbc-visa-classic-low-rate.webp,TRUE
+RBC ION Visa,rbc-ion-visa,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/rewards/images/rbc-ion-visa.webp,TRUE
+More Rewards RBC Visa,more-rewards-rbc-visa,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/rewards/images/more-rewards-rbc-visa.webp,TRUE
+moi RBC Visa,moi-rbc-visa,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/rewards/images/moi-rbc-visa.webp,TRUE
+RBC Avion Visa Infinite Privilege,rbc-avion-visa-infinite-privilege,rbc,39900,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/rbc-avion-visa-infinite-privilege.webp,TRUE
+RBC British Airways Visa Infinite,rbc-british-airways-visa-infinite,rbc,16500,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/rbc-british-airways-visa-infinite.webp,TRUE
+RBC Visa Platinum,rbc-visa-platinum,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/no-fee/images/rbc-visa-platinum.webp,TRUE
+RBC U.S. Dollar Visa Gold,rbc-us-dollar-visa-gold,rbc,6500,FEE,https://www.rbcroyalbank.com/credit-cards/canada/travel/images/rbc-us-dollar-visa-gold.webp,TRUE
+RBC RateAdvantage Visa,rbc-rateadvantage-visa,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/low-interest/images/rbc-rateadvantage-visa.webp,TRUE
+More Rewards RBC Visa Infinite,more-rewards-rbc-visa-infinite,rbc,0,NO_FEE,https://www.rbcroyalbank.com/credit-cards/canada/rewards/images/more-rewards-rbc-visa-infinite.webp,TRUE

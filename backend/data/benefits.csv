@@ -1,0 +1,48 @@
+card_slug,benefit_type,title,official_text,simple_text,sort_order
+rbc-avion-visa-infinite,rewards,Earn Avion points,Earn 1 Avion point per dollar spent on purchases,Earn flexible travel points on every purchase,1
+rbc-avion-visa-infinite,insurance,Travel medical insurance,Out-of-country emergency medical coverage,Covers short trips abroad,2
+rbc-avion-visa-infinite,travel,Flexible travel redemption,"Book travel on any airline, any time",Use points without blackout dates,3
+,,,,,
+rbc-avion-visa-platinum,rewards,Earn Avion points,Earn 1 Avion point per dollar spent,Earn travel rewards on daily spending,1
+rbc-avion-visa-platinum,travel,Flexible travel booking,Book travel on any airline,No airline restrictions,2
+,,,,,
+rbc-ion-plus-visa,rewards,Accelerated earn rates,"Earn 3X Avion points on groceries, dining, gas, and more",Earn more points on everyday spending,1
+rbc-ion-plus-visa,insurance,Purchase protection,Purchase security and extended warranty coverage,Protects eligible purchases,2
+,,,,,
+rbc-cash-back-mastercard,rewards,Cash back rewards,Earn cash back on all qualifying purchases,Get money back on spending,1
+rbc-cash-back-mastercard,fees,No annual fee,$0 annual fee,No cost to keep the card,2
+,,,,,
+westjet-rbc-mastercard,travel,WestJet rewards,Earn WestJet points on flights and everyday purchases,Earn rewards toward WestJet travel,1
+westjet-rbc-mastercard,travel,Companion voucher,Annual round-trip companion voucher,Bring someone for less,2
+,,,,,
+westjet-rbc-world-elite-mastercard,travel,Premium WestJet rewards,Earn WestJet points faster on flights and essentials,Maximize WestJet rewards,1
+westjet-rbc-world-elite-mastercard,travel,Free checked bag,First checked bag free on WestJet flights,Save on baggage fees,2
+westjet-rbc-world-elite-mastercard,travel,Lounge access,Access airport lounges worldwide,Relax before flights,3
+,,,,,
+rbc-cash-back-preferred-world-elite-mastercard,rewards,Higher cash back,Earn 1.5% cash back on purchases,Higher unlimited cash back,1
+rbc-cash-back-preferred-world-elite-mastercard,travel,Lounge access,Access to Mastercard Travel Pass lounges,Airport lounge access,2
+,,,,,
+rbc-visa-classic-low-rate,interest,Low interest rate,Low fixed interest rate on purchases and cash advances,Pay less interest,1
+,,,,,
+rbc-ion-visa,rewards,Bonus Avion points,Earn extra Avion points on groceries and gas,Earn points on essentials,1
+rbc-ion-visa,fees,No annual fee,$0 annual fee,No yearly cost,2
+,,,,,
+more-rewards-rbc-visa,rewards,More Rewards points,Earn points at participating grocery and dining partners,Save more on groceries,1
+,,,,,
+moi-rbc-visa,rewards,Moi points,"Earn Moi points on groceries, dining, and gas",Earn rewards where you shop,1
+,,,,,
+rbc-avion-visa-infinite-privilege,travel,Luxury travel benefits,Premium travel benefits and lounge access,Travel in luxury,1
+rbc-avion-visa-infinite-privilege,rewards,Enhanced Avion earn,Earn more Avion points on purchases,Faster point accumulation,2
+,,,,,
+rbc-british-airways-visa-infinite,travel,Avios rewards,Earn Avios on British Airways and dining,Earn airline-specific rewards,1
+rbc-british-airways-visa-infinite,travel,Companion voucher,Annual companion travel voucher,Bring a companion for less,2
+,,,,,
+rbc-visa-platinum,fees,No annual fee,$0 annual fee,Free to keep,1
+rbc-visa-platinum,insurance,Insurance coverage,Includes rental car and purchase protection,Extra peace of mind,2
+,,,,,
+rbc-us-dollar-visa-gold,travel,U.S. dollar spending,Make purchases in U.S. dollars,Avoid FX fluctuations,1
+rbc-us-dollar-visa-gold,rewards,Avion points,Earn Avion points on U.S. dollar purchases,Earn points on U.S. spending,2
+,,,,,
+rbc-rateadvantage-visa,interest,Variable low rate,Lower variable interest rate,Lower interest costs,1
+,,,,,
+more-rewards-rbc-visa-infinite,rewards,Accelerated rewards,Earn more points at partner locations,Maximize grocery rewards,1
