@@ -84,7 +84,7 @@ export function HomePage() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/dashboard">
+              <Link href="/insights">
                 <Button size="lg" variant="outline" className="h-12 border-border/60 bg-card px-6">
                   View insights
                 </Button>

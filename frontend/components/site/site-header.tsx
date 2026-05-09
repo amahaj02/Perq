@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/cards', label: 'Card Explorer' },
-  { href: '/dashboard', label: 'Insights' },
+  { href: '/insights', label: 'Insights' },
 ]
 
 export function SiteHeader() {
@@ -54,7 +54,7 @@ export function SiteHeader() {
               Browse cards
             </Button>
           </Link>
-          <Link href="/dashboard/recommendations">
+          <Link href="/insights/explorer">
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Open explorer</Button>
           </Link>
         </div>

@@ -6,13 +6,13 @@ import { BarChart3, Blocks, CreditCard, FileText, LayoutDashboard, Shield, Spark
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-  { href: '/dashboard/cards', label: 'Catalog', icon: CreditCard },
-  { href: '/dashboard/rewards', label: 'Reward Maps', icon: TrendingUp },
-  { href: '/dashboard/benefits', label: 'Benefits', icon: Shield },
-  { href: '/dashboard/insights', label: 'Signals', icon: BarChart3 },
-  { href: '/dashboard/recommendations', label: 'Explorer', icon: Sparkles },
-  { href: '/dashboard/settings', label: 'Methodology', icon: FileText },
+  { href: '/insights', label: 'Overview', icon: LayoutDashboard },
+  { href: '/insights/cards', label: 'Catalog', icon: CreditCard },
+  { href: '/insights/rewards', label: 'Reward Maps', icon: TrendingUp },
+  { href: '/insights/benefits', label: 'Benefits', icon: Shield },
+  { href: '/insights/signals', label: 'Signals', icon: BarChart3 },
+  { href: '/insights/explorer', label: 'Explorer', icon: Sparkles },
+  { href: '/insights/methodology', label: 'Methodology', icon: FileText },
 ]
 
 export function DashboardSidebar() {
@@ -33,7 +33,7 @@ export function DashboardSidebar() {
       <nav className="flex-1 p-4">
         <ul className="space-y-1.5">
           {navItems.map(({ href, label, icon: Icon }) => {
-            const isActive = href === '/dashboard' ? pathname === href : pathname.startsWith(href)
+            const isActive = href === '/insights' ? pathname === href : pathname.startsWith(href)
             return (
               <li key={href}>
                 <Link

@@ -7,13 +7,13 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { href: '/dashboard', label: 'Overview' },
-  { href: '/dashboard/cards', label: 'Catalog' },
-  { href: '/dashboard/rewards', label: 'Reward Maps' },
-  { href: '/dashboard/benefits', label: 'Benefits' },
-  { href: '/dashboard/insights', label: 'Signals' },
-  { href: '/dashboard/recommendations', label: 'Explorer' },
-  { href: '/dashboard/settings', label: 'Methodology' },
+  { href: '/insights', label: 'Overview' },
+  { href: '/insights/cards', label: 'Catalog' },
+  { href: '/insights/rewards', label: 'Reward Maps' },
+  { href: '/insights/benefits', label: 'Benefits' },
+  { href: '/insights/signals', label: 'Signals' },
+  { href: '/insights/explorer', label: 'Explorer' },
+  { href: '/insights/methodology', label: 'Methodology' },
 ]
 
 export function DashboardHeader() {
@@ -21,7 +21,7 @@ export function DashboardHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const currentPage =
-    navItems.find((item) => (item.href === '/dashboard' ? pathname === item.href : pathname.startsWith(item.href))) ??
+    navItems.find((item) => (item.href === '/insights' ? pathname === item.href : pathname.startsWith(item.href))) ??
     navItems[0]
 
   return (
@@ -44,7 +44,7 @@ export function DashboardHeader() {
           type="button"
           className="rounded-lg p-2 text-muted-foreground md:hidden"
           onClick={() => setMobileOpen((current) => !current)}
-          aria-label="Toggle dashboard navigation"
+          aria-label="Toggle insights navigation"
         >
           <Menu className="h-5 w-5" />
         </button>
@@ -54,7 +54,7 @@ export function DashboardHeader() {
         <div className="fixed inset-x-0 top-16 z-20 border-b border-border/50 bg-background/95 p-3 backdrop-blur-xl md:hidden">
           <nav className="grid gap-1">
             {navItems.map((item) => {
-              const active = item.href === '/dashboard' ? pathname === item.href : pathname.startsWith(item.href)
+              const active = item.href === '/insights' ? pathname === item.href : pathname.startsWith(item.href)
               return (
                 <Link
                   key={item.href}

@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">404</div>
       <h1 className="mt-3 text-4xl font-semibold text-foreground">That page is not part of the current Perq frontend.</h1>
       <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-        The repository cleanup removed the older frontend routes. Use the current catalog and dashboard surfaces instead.
+        That route is no longer active. Use the current catalog and insights surfaces instead.
       </p>
       <div className="mt-6 flex gap-3">
         <Link href="/cards" className="rounded-xl bg-accent px-4 py-2 text-sm font-medium text-accent-foreground">

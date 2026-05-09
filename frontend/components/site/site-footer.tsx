@@ -16,8 +16,8 @@ export function SiteFooter() {
           <div className="text-sm font-semibold text-foreground">Explore</div>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
             <Link href="/cards">Card explorer</Link>
-            <Link href="/dashboard">Insights</Link>
-            <Link href="/dashboard/benefits">Benefit tracker</Link>
+            <Link href="/insights">Insights</Link>
+            <Link href="/insights/benefits">Benefit tracker</Link>
           </div>
         </div>
 
