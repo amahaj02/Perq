@@ -84,6 +84,22 @@ If Windows reload permissions get in the way in your terminal, run without reloa
 uv run python -m uvicorn app.main:app --host 127.0.0.1 --port 8080
 ```
 
+## Production Startup
+
+To avoid schema drift between deployed code and Supabase, run Alembic before starting the app:
+
+```bash
+uv run python start.py
+```
+
+That startup path upgrades the database to `head` and then launches Uvicorn.
+
+For Render, the start command should be:
+
+```bash
+cd backend && .venv/bin/python start.py
+```
+
 ## Tests
 
 ```bash
