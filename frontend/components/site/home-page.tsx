@@ -1,9 +1,35 @@
 import Link from 'next/link'
 import { ArrowRight, Blocks, ChartNoAxesCombined, ShieldCheck, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { benefitMoments, cards, issuers, projectSignals } from '@/lib/perq-data'
+import type { CardRecord } from '@/lib/perq-data'
 
-function HeroPreview() {
+type HomePageProps = {
+  cards: CardRecord[]
+  issuers: string[]
+}
+
+function HeroPreview({ cards }: { cards: CardRecord[] }) {
+  const featuredCard = cards[0]
+  const featuredRates = featuredCard?.rewardRates.slice(0, 3) ?? []
+  const premiumCount = cards.filter((card) => card.categories.includes('Premium')).length
+  const projectSignals = [
+    {
+      label: 'Tracked cards',
+      value: String(cards.length),
+      detail: 'Current live card catalog available across the main explorer and detail pages.',
+    },
+    {
+      label: 'Premium cards',
+      value: String(premiumCount),
+      detail: 'Cards where benefits and fee tradeoffs matter alongside reward rates.',
+    },
+    {
+      label: 'Reward lines',
+      value: String(cards.reduce((sum, card) => sum + card.rewardRates.length, 0)),
+      detail: 'Structured earn-rate rows now flowing through the live API-backed catalog.',
+    },
+  ]
+
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,21,27,0.95),rgba(12,14,18,0.98))] p-5 shadow-2xl shadow-black/30">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(237,108,59,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(74,128,255,0.14),transparent_40%)]" />
@@ -23,20 +49,20 @@ function HeroPreview() {
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <div className="text-sm font-medium text-foreground">Best current match</div>
-                <div className="text-xs text-muted-foreground">High grocery + dining profile</div>
+                <div className="text-xs text-muted-foreground">{featuredCard?.bestFor ?? 'Live card fit profile'}</div>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-semibold text-foreground">94</div>
+                <div className="text-3xl font-semibold text-foreground">{featuredCard?.score ?? '--'}</div>
                 <div className="text-xs text-muted-foreground">Perq fit score</div>
               </div>
             </div>
             <div className="rounded-[1.5rem] border border-white/8 bg-[linear-gradient(135deg,rgba(242,127,72,0.22),rgba(73,122,255,0.16))] p-4">
-              <div className="text-xs text-white/70">American Express</div>
-              <div className="mt-1 text-lg font-semibold text-white">Cobalt</div>
+              <div className="text-xs text-white/70">{featuredCard?.issuer ?? 'Issuer'}</div>
+              <div className="mt-1 text-lg font-semibold text-white">{featuredCard?.name ?? 'Tracked card'}</div>
               <div className="mt-6 grid gap-2 sm:grid-cols-3">
-                {['5x groceries', '5x dining', '2x transit'].map((line) => (
-                  <div key={line} className="rounded-2xl bg-black/20 px-3 py-2 text-xs text-white/80">
-                    {line}
+                {featuredRates.map((rate) => (
+                  <div key={rate.label} className="rounded-2xl bg-black/20 px-3 py-2 text-xs text-white/80">
+                    {rate.value} {rate.label.toLowerCase()}
                   </div>
                 ))}
               </div>
@@ -58,7 +84,13 @@ function HeroPreview() {
   )
 }
 
-export function HomePage() {
+export function HomePage({ cards, issuers }: HomePageProps) {
+  const benefitMoments = cards.slice(0, 3).map((card) => ({
+    title: `${card.issuer} ${card.name} signal`,
+    card: card.name,
+    detail: card.watchouts[0] ?? card.summary,
+  }))
+
   return (
     <main className="bg-background">
       <section className="relative overflow-hidden">
@@ -105,7 +137,7 @@ export function HomePage() {
           </div>
 
           <div className="relative">
-            <HeroPreview />
+            <HeroPreview cards={cards} />
           </div>
         </div>
       </section>
